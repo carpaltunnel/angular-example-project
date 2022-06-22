@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Widget } from '../widget';
-import { WIDGETS } from '../mock-widgets';
+import { WidgetService } from '../widget.service';
 
 @Component({
   selector: 'app-widgets',
@@ -9,20 +9,18 @@ import { WIDGETS } from '../mock-widgets';
 })
 export class WidgetsComponent implements OnInit {
 
-  widget: Widget = {
-    id: 'e463af1b-5939-4e5c-b9a2-18fadd1a3d14',
-    name: 'Widget #1',
-    hexColor: 'FFF',
-    weight: 25,
-    color: 'orange',
-  };
-  widgets = WIDGETS;
+  widgets: Widget[] = [];
 
   selectedWidget!: Widget;
 
-  constructor() { }
+  constructor(private widgetService: WidgetService) {}
 
   ngOnInit(): void {
+    this.getWidgets();
+  }
+
+  getWidgets(): void {
+    this.widgets = this.widgetService.getWidgets();
   }
 
   onSelect(widget: Widget) {

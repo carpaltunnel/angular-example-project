@@ -1,19 +1,10 @@
-<!--
-<h2>{{widget.name | uppercase}} Details</h2>
-<div><span>ID : {{widget.id}}</span></div>
-<div><span>Name : <input id="name" [(ngModel)]="widget.name"></span></div>
-<div><span>Color : {{widget.color}}</span></div>
--->
-
 <h2>Widget List</h2>
 <ol>
     <li *ngFor="let x of widgets">{{x.name}}
         <button class="selected" type="button" (click)="onSelect(x)"></button>
     </li>
 </ol>
-
 <br>
-<div *ngIf="selectedWidget">
-    <h2>{{selectedWidget.name | uppercase}} Details</h2>
-    <div><span>ID : {{selectedWidget.id}}</span></div>
-</div>
+
+
+<app-widget-detail [widget]="selectedWidget"></app-widget-detail>
