@@ -6,11 +6,11 @@
 -->
 
 <h2>Widget List</h2>
-<ul>
+<ol>
     <li *ngFor="let x of widgets">{{x.name}}
-        <button type="button" (click)="onSelect(x)"></button>
+        <button class="selected" type="button" (click)="onSelect(x)"></button>
     </li>
-</ul>
+</ol>
 
 <br>
 <div *ngIf="selectedWidget">
