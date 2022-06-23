@@ -20,7 +20,10 @@ export class WidgetsComponent implements OnInit {
   }
 
   getWidgets(): void {
-    this.widgets = this.widgetService.getWidgets();
+    this.widgetService.getWidgets()
+      .subscribe((widgetsFromObservable) => {
+        this.widgets = widgetsFromObservable;
+      });
   }
 
   onSelect(widget: Widget) {
