@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Widget } from '../widget';
 import { WidgetService } from '../widget.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-widgets',
@@ -13,7 +14,8 @@ export class WidgetsComponent implements OnInit {
 
   selectedWidget!: Widget;
 
-  constructor(private widgetService: WidgetService) {}
+  constructor(private widgetService: WidgetService,
+    private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.getWidgets();
@@ -27,7 +29,7 @@ export class WidgetsComponent implements OnInit {
   }
 
   onSelect(widget: Widget) {
-    console.log(widget.name);
+    this.messageService.add(`WidgetsComponent : User selected ${widget.name}`)
     this.selectedWidget = widget;
   }
 
