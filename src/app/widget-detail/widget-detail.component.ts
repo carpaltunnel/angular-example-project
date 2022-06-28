@@ -32,6 +32,20 @@ export class WidgetDetailComponent implements OnInit {
     }
   }
 
+  saveWidget(): void {
+    if (this.widget) {
+      this.widgetService.updateWidget(this.widget)
+      .subscribe(() => this.goBack());
+    }
+  }
+
+  deleteWidget(): void {
+    if (this.widget) {
+      this.widgetService.deleteWidget(this.widget)
+      .subscribe(() => this.goBack());
+    }
+  }
+
   goBack(): void {
     this.location.back();
   }

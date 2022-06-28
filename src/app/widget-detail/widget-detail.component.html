@@ -1,7 +1,11 @@
 <div *ngIf="widget">
     <h2>{{widget.name | uppercase}} Details</h2>
     <div><span>Weight : {{widget.weight}}</span></div>
-    <div><span>Color : {{widget.color}}</span></div>
+    <div><span>Color : 
+        <input id="widget-color" [(ngModel)]="widget.color">
+    </span></div>
     <div><span>hexColor : {{widget.hexColor}}</span></div>
 </div>
+<button type="button" (click)="saveWidget()">Save</button>
 <button type="button" (click)="goBack()">Back</button>
+<button type="button" (click)="deleteWidget()">Delete</button>
