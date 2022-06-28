@@ -9,10 +9,7 @@ import { MessageService } from '../message.service';
   styleUrls: ['./widgets.component.css']
 })
 export class WidgetsComponent implements OnInit {
-
   widgets: Widget[] = [];
-
-  selectedWidget!: Widget;
 
   constructor(private widgetService: WidgetService,
     private messageService: MessageService) {}
@@ -27,10 +24,4 @@ export class WidgetsComponent implements OnInit {
         this.widgets = widgetsFromObservable;
       });
   }
-
-  onSelect(widget: Widget) {
-    this.messageService.add(`WidgetsComponent : User selected ${widget.name}`)
-    this.selectedWidget = widget;
-  }
-
 }

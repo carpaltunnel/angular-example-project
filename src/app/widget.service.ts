@@ -17,4 +17,11 @@ export class WidgetService {
     this.messageService.add('WidgetService : fetched widgets');
     return widgets;
   }
+
+  getWidget(id: string): Observable<Widget|undefined> {
+    const widget = WIDGETS.find(widg => widg.id === id);
+    this.messageService.add(`WidgetService : fetched widgetId : ${id}`);
+   
+    return of(widget);
+  }
 }

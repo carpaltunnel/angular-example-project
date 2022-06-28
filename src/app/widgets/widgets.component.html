@@ -1,10 +1,12 @@
 <h2>Widget List</h2>
 <ol>
-    <li *ngFor="let x of widgets">{{x.name}}
-        <button class="selected" type="button" (click)="onSelect(x)"></button>
+    <li *ngFor="let x of widgets">
+        <a routerLink="/widgets/{{x.id}}">
+            {{x.name}}
+        </a>
     </li>
 </ol>
 <br>
 
 
-<app-widget-detail [widget]="selectedWidget"></app-widget-detail>
+<!-- app-widget-detail [widget]="selectedWidget"></app-widget-detail -->

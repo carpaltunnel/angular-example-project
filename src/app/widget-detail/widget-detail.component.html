@@ -1,4 +1,7 @@
 <div *ngIf="widget">
     <h2>{{widget.name | uppercase}} Details</h2>
-    <div><span>ID : {{widget.id}}</span></div>
+    <div><span>Weight : {{widget.weight}}</span></div>
+    <div><span>Color : {{widget.color}}</span></div>
+    <div><span>hexColor : {{widget.hexColor}}</span></div>
 </div>
+<button type="button" (click)="goBack()">Back</button>

@@ -1,6 +1,7 @@
 <h2>Top Ordered Widgets</h2>
 <div>
-    <a *ngFor="let widget of widgets">
+    <a *ngFor="let widget of widgets"
+        routerLink="/widgets/{{widget.id}}">
         {{widget.name}}
     </a>
 </div>

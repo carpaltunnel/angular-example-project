@@ -1,5 +1,8 @@
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { Widget } from '../widget';
+import { WidgetService } from '../widget.service';
 
 @Component({
   selector: 'app-widget-detail',
@@ -10,9 +13,26 @@ export class WidgetDetailComponent implements OnInit {
 
   @Input() widget?: Widget;
   
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+      private widgetService: WidgetService,
+      private location: Location) { }
 
   ngOnInit(): void {
+    // Fetch the widget based on ID
+    this.getWidget();
   }
 
+  getWidget(): void {
+    const widgetId = this.route.snapshot.paramMap.get('id');
+
+    if (widgetId) {
+      this.widgetService.getWidget(widgetId).subscribe((returnWidget) => {
+        this.widget = returnWidget;
+      });
+    }
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
